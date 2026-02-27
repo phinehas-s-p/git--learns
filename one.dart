@@ -242,3 +242,82 @@ var postfix = ++aop;
 var pre = 11;
 var prefix = pre++;
 //prefix means it will fix the 11 to prefix variable and after update the pre as +1
+
+//Collections
+//list
+var list1 = [];
+var list2 = <int>[];
+List<int> list3 = [];
+//filled list
+var list4 = List<int>.filled(5, 0);
+//growable list
+var groww = List<int>.empty(growable: true);
+//using a list from another iterbale
+var list = List.from([1, 2, 3]);
+//creates a list from a iterable
+var listn = List.of([1, 2, 34]);
+
+//unmodifiable
+var unmod = List.unmodifiable([1, 2, 3]);
+
+//list.generate
+var listgen = List.generate(5, ((index) => index + 1));
+
+//length
+var lengu = listgen.length;
+void mainlist() {
+  print(listgen.first);
+  print(listgen.last);
+  print(listgen[0]);
+  listgen[0] = 1;
+  print(listgen.isEmpty);
+  print(listgen.isNotEmpty);
+
+  print(listasmap.values);
+}
+
+var listn1 = listgen.add(4);
+var listn2 = listgen.addAll([2, 3, 4]);
+var listn3 = groww.insert(3, 5);
+var listn4 = groww.insertAll(4, [1, 2, 3]);
+var listn5 = groww.remove(5);
+var listn6 = groww.removeAt(2);
+var listn7 = groww.removeLast();
+var list8 = groww.removeRange(2, 3);
+var list9 = groww.removeRange(3, 4);
+var list11 = groww.replaceRange(1, 5, [1, 2, 3, 4]);
+var listni = groww.sort();
+var shuffle = groww.shuffle();
+var testinglist = groww.indexOf(3);
+
+var testinglist1 = groww.lastIndexOf(3);
+
+var sublistd = groww.sublist(2, 5);
+
+var listasmap = groww.asMap();
+
+var listasSet = groww.toSet();
+
+var mapTest = groww.map((i) => i * 2);
+void forEac() {
+  groww.forEach((i) => print(i * 2));
+}
+
+var event = groww.where((i) => i.isEven);
+var event1 = groww.where((i) => i % 2 == 0).toList();
+
+var event2 = groww.whereType<int>();
+
+var redu = groww.reduce((i, j) => i + j);
+
+var folder = groww.fold(3, (i, j) => i + j);
+
+var joint = groww.join('');
+
+var casting = groww.cast<int>();
+var check = groww.contains(3);
+var eve = groww.every((x) => x % 2 == 0);
+var any = groww.any((x) => x % 2 == 0);
+var testc = groww.clear();
+var fillr = groww.fillRange(2, 5, 100);
+var make = groww.retainWhere((i) => i % 2 == 0);
