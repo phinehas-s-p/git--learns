@@ -1,6 +1,10 @@
 //God is Great
 
+// ignore_for_file: dead_code
+
 //variables
+import 'dart:async';
+
 var a = 10;
 //var can be any dataTypes . it can be modified and reassigned but the datatype can be only be same not able to change the dataType when we modified or reassign.
 
@@ -289,6 +293,7 @@ var list11 = groww.replaceRange(1, 5, [1, 2, 3, 4]);
 var listni = groww.sort();
 var shuffle = groww.shuffle();
 var testinglist = groww.indexOf(3);
+var taken = groww.take(7);
 
 var testinglist1 = groww.lastIndexOf(3);
 
@@ -321,3 +326,230 @@ var any = groww.any((x) => x % 2 == 0);
 var testc = groww.clear();
 var fillr = groww.fillRange(2, 5, 100);
 var make = groww.retainWhere((i) => i % 2 == 0);
+
+//set
+var sets = <int>{};
+Set<int> ste1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+var set2 = Set<int>();
+
+void setCheck() {
+  print(ste1.first);
+  print(ste1.last);
+  print(ste1.length);
+  print(ste1.isEmpty);
+  print(ste1.isNotEmpty);
+  ste1.add(2);
+  ste1.addAll([11, 22, 33]);
+  ste1.remove(3);
+  ste1.removeAll([1, 2]);
+  ste1.clear();
+  ste1.contains(2);
+  ste1.containsAll([1, 2, 3]);
+  ste1.toList();
+  var setM = ste1.map((i) => i * 2);
+  print(setM);
+  ste1.forEach((i) => print(i * 2));
+  ste1.retainWhere((i) => i.isEven);
+}
+
+//map
+var maps = Map<int, dynamic>();
+Map<int, dynamic> maps1 = {1: '23'};
+void mapmain() {
+  maps[1] = 'hello';
+  maps.addAll({1: 'jio'});
+  maps.length;
+  print(maps.keys);
+  print(maps.values);
+  print(maps.isEmpty);
+  print(maps.isNotEmpty);
+  print(maps.clear);
+  print(maps.containsKey(2));
+  print(maps.containsValue(3));
+
+  maps.values.forEach((i) => print(i));
+  maps.forEach((key, value) => print('$key is in $value'));
+
+  var mapin = maps.map(
+    (key, value) => MapEntry(key, value),
+  );
+  print(mapin);
+}
+
+var listns = [MapEntry(2, 'hello'), MapEntry(3, 'jio')];
+
+var mapio = Map.fromEntries(listns);
+var ifp = maps.putIfAbsent(2, () => 'kio');
+var jiuo = maps.update(2, (i) => 'jio');
+
+var removethe = maps.removeWhere((k, v) => k.isEven);
+
+//Null Saftey
+void mainList() {
+  List<int?> cabne = [null];
+
+  List<int?>? yui;
+  print(yui);
+  print(cabne);
+  Map<int?, String?>? keysd;
+  print(keysd);
+
+  // || or it will check '', false, 0, null if any this is this move to next
+  //?? only cjheck null if null chexk next
+  //&& both needs to true
+
+  //ternary operator
+  print(nerty?.length);
+}
+
+var bvols = true;
+
+var helloji = bvols ? 'yes' : 'jn';
+
+var hellojsi = !bvols; //we are telling it was not null
+
+var nerty = null;
+//var list = [list1,..?list2];
+
+//Iterator
+
+//iterbale generator
+var listIterbale = Iterable.generate(
+  5,
+  (ind) => ind * 5,
+).take(3);
+
+//sync generator
+Iterable<int> intGen() sync* {
+  for (var i = 0; i < 5; i++) {
+    yield i;
+  }
+}
+
+void syngenet() {
+  for (var i in intGen()) {
+    print(i);
+  }
+}
+
+//async gen
+Stream<int> getasync() async* {
+  for (var i = 0; i < 5; i++) {
+    await Future.delayed(Duration(seconds: 5));
+    yield i;
+  }
+}
+
+void asyncgenu() {
+  getasync().listen((va) => print(va));
+}
+
+//stream.periodic
+
+void streamper() {
+  Stream<int> streamch = Stream.periodic(
+    Duration(seconds: 5),
+    (i) => i,
+  ).take(6);
+  streamch.listen(
+    (i) => print(i),
+    onDone: () {
+      print('completed');
+    },
+  );
+}
+
+//FUture
+void futureCheck() {
+  int count = 0;
+  Timer.periodic(Duration(seconds: 10), (time) {
+    count++;
+    print(count);
+    if (count == 5) time.cancel();
+  });
+}
+
+//Enum
+
+enum Typer { Hello, Hi, How }
+
+void echeck() {
+  print(Typer.values);
+  print(Typer.Hi.index);
+  print(Typer.Hi.name);
+}
+
+//Enhaced Enum
+
+enum Ench {
+  Cat(5, 'millo'),
+  Dog(4, 'lio'),
+  Goat(7, 'kio');
+
+  final int count;
+  final String difie;
+  const Ench(this.count, this.difie);
+  void prinitn() {
+    print('$name $count is in $difie');
+  }
+}
+
+void runru() {
+  Ench.Cat.prinitn();
+}
+
+void checkStatus(Ench types) {
+  switch (types) {
+    case Ench.Cat:
+      print(Ench.Cat.name);
+      break;
+    case Ench.Dog:
+      print(Ench.Dog.name);
+      break;
+    case Ench.Goat:
+      print(Ench.Goat.name);
+      break;
+  }
+}
+
+//Abstract Enum
+abstract class interfaces {
+  void infet() {}
+}
+
+enum Roles implements interfaces {
+  KIJ,
+  jiu,
+  ghiko;
+
+  @override
+  void infet() {
+    print(name);
+  }
+}
+
+enum Status { success, error, done }
+
+extension stusone on Status {
+  get switching {
+    switch (this) {
+      case Status.success:
+        return 'succees';
+        break;
+      case Status.error:
+        return 'error';
+        break;
+      case Status.done:
+        return 'done';
+        break;
+    }
+  }
+}
+
+Status getStatus(String ni) {
+  return Status.values.firstWhere(
+    (i) => i.name == ni,
+    orElse: () => Status.error,
+  );
+}
